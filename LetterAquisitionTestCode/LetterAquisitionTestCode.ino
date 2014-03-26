@@ -23,21 +23,21 @@ void setup() {
 
 
 void loop() {
-  if ((deliveryAddress == -1) && (letterInTransitFlag ==0)
+  if ((deliveryAddress == -1) && (letterInTransitFlag ==0))
     aquisitionMotor.writeMicroseconds(1750);
   readLineTrackers();
-  if ((lineTrackerData1 > 750)||(lineTrackerData1 < 200)) {
+  if ((lineTrackerData1 > 700)||(lineTrackerData1 < 100)) {
   //grey is around 626, white is around 33
     aquisitionMotor.writeMicroseconds(1500);
-    letterInTransitFlag = 1;
-    if (lineTrackerData1 < 200) {
-      if (lineTrackerData2 < 200)
+    //letterInTransitFlag = 1;
+    if (lineTrackerData1 < 100) {
+      if (lineTrackerData2 < 100)
         deliveryAddress = 0;
       else 
         deliveryAddress = 1;
     }
-    else if (lineTrackerData2 > 750) {
-      if (lineTrackerData2 > 750)
+    else if (lineTrackerData2 > 700) {
+      if (lineTrackerData2 > 700)
         deliveryAddress = 3;
       else 
         deliveryAddress = 4;
@@ -49,7 +49,7 @@ void loop() {
   Serial.println(deliveryAddress);
   if (letterInTransitFlag ==2) {
     aquisitionMotor.writeMicroseconds(1250);
-    delay(2000);
+    delay(1000);
     letterInTransitFlag = 0;
   }
 }
