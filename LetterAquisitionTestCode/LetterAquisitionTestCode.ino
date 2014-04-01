@@ -36,11 +36,11 @@ void loop() {
       else 
         deliveryAddress = 1;
     }
-    else if (lineTrackerData2 > 700) {
+    else if (lineTrackerData1 > 700) {
       if (lineTrackerData2 > 700)
         deliveryAddress = 3;
       else 
-        deliveryAddress = 4;
+        deliveryAddress = 2;
     }
   }
   else
